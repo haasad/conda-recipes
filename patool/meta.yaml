@@ -1,0 +1,35 @@
+{% set name = "patool" %}
+{% set version = "1.12" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  git_rev: upstream/{{ version }}
+  git_url: https://github.com/wummel/patool.git
+
+build:
+  noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    
+  run:
+    - python
+
+test:
+  imports:
+    - patoolib
+
+about:
+  home: https://github.com/wummel/patool 
+  license: GPL-3.0
+  summary: 'patool is a portable command line archive file manager http://wummel.github.io/patool/'
+  license_family: GPL
+  doc_url: http://wummel.github.io/patool/
+  dev_url: http://wummel.github.io/patool/
