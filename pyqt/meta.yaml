@@ -24,7 +24,7 @@ test:
     - PyQt5.QtWebEngineWidgets
   commands:
     - python pyqt_test.py
-    - conda inspect linkages -p $PREFIX pyqt
+    - conda inspect linkages -p $PREFIX pyqt # [not win]
 
 about:
   home: http://www.riverbankcomputing.co.uk/software/pyqt
