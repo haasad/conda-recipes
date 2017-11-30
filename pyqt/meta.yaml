@@ -1,0 +1,40 @@
+{% set version = "5.9.2" %}
+
+package:
+  name: pyqt
+  version: {{ version }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - pip
+    - sip >=4.19
+  run:
+    - python
+    - sip >=4.19
+
+test:
+  files:
+    - pyqt_test.py
+  imports:
+    - PyQt5.QtCore
+    - PyQt5.QtWebEngineWidgets
+  commands:
+    - python pyqt_test.py
+    - conda inspect linkages -p $PREFIX pyqt
+
+about:
+  home: http://www.riverbankcomputing.co.uk/software/pyqt
+  license: Commercial, GPL-2.0, GPL-3.0
+  license_family: GPL
+  summary: 'Python binding of the cross-platform GUI toolkit Qt.'
+  description: |
+    "PyQt is a set of Python v2 and v3 bindings for The Qt Company's Qt
+    application framework and runs on all platforms supported by Qt including
+    Windows, MacOS/X and Linux. PyQt5 supports Qt v5. PyQt4 supports Qt v4 and
+    will build against Qt v5. The bindings are implemented as a set of Python
+    modules and contain over 1,000 classes."
+  doc_url: https://www.riverbankcomputing.com/software/pyqt/
